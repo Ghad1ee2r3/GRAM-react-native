@@ -12,7 +12,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux";
-import ProductsList from "./Components/ProductsList";
+// import ProductsList from "./Components/ProductsList";
 
 export default function App() {
   return (
@@ -21,7 +21,6 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Container>
-          <Header />
           <RootNavigator />
         </Container>
       </NavigationContainer>

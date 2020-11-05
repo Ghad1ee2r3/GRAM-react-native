@@ -10,6 +10,9 @@ import {
   ListItem,
   Picker,
   Content,
+  Card,
+  CardItem,
+  Container,
 } from "native-base";
 //import { connect } from "react-redux";
 
@@ -22,19 +25,16 @@ const ProductDetail = ({ route }) => {
 
   //display list of images product
   const productImage = product.images.map((image) => (
-    <div className="image">
-      <img src={image} />
-    </div>
+      <Thumbnail key={image} source={{uri: image}} />
   ));
 
   return (
     <Container>
-      <Header />
       <Content>
         <Card style={{ flex: 0 }}>
           <CardItem header>
             <Left>
-              <Thumbnail source={product.image} />
+              <Thumbnail source={{uri: product.image}} />
               <Body>
                 <Text>{product.name}</Text>
                 <Text note>{product.price}</Text>
@@ -43,6 +43,7 @@ const ProductDetail = ({ route }) => {
               </Body>
             </Left>
           </CardItem>
+          {productImage}
         </Card>
       </Content>
     </Container>

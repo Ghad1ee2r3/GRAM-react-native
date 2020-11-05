@@ -6,7 +6,6 @@ import ProductsList from "../Components/ProductsList";
 import ProductDetail from "../Components/ProductDetail";
 import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
-import { StyleSheet } from "react-native";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -15,7 +14,7 @@ export default function RootNavigation() {
     <Navigator initialRouteName="ProductsList">
       <Screen
         name="ProductsList"
-        Component={ProductsList}
+        component={ProductsList}
         options={{
           title: "Products List ",
           headerTintColor: "white",

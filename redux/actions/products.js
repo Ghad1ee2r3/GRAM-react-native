@@ -3,9 +3,16 @@ import { SET_PRODUCTS } from "./actionTypes";
 import instance from "./instance";
 export const fetchProducts = () => async (dispatch) => {
   try {
-    const res = await instance.get("/products/");
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("Hit");
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
+    const res = await instance.get("products/");
     const products = res.data;
-    console.log(products);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("Hello");
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    // console.log(products);
     dispatch({
       type: SET_PRODUCTS,
       payload: products,

@@ -15,22 +15,19 @@ import {
   ListItem,
 } from "native-base";
 
-import { StyleSheet } from "react-native";
-
 const ProductCard = ({ product, navigation }) => {
   return (
     <ListItem
       button
       onPress={() => navigation.navigate("ProductDetail", { product })}
-      style={styles.listitem}
     >
       <Container>
         <Header />
         <Content>
-          <Card style={{ flex: 0 }}>
+          <Card >
             <CardItem header>
               <Left>
-                <Thumbnail source={product.image} />
+              <Thumbnail source={{uri: product.image}} />
                 <Body>
                   <Text>{product.name}</Text>
                   <Text note>{product.price}</Text>
