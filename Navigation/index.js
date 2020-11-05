@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-//navigation
 import { createStackNavigator } from "@react-navigation/stack";
 // Components
 import ProductsList from "../Components/ProductsList";
 import ProductDetail from "../Components/ProductDetail";
-import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
-
 
 const { Navigator, Screen } = createStackNavigator();
 

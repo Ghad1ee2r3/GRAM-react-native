@@ -1,9 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Header, StyleSheet, Text, View } from "react-native";
-import { Spinner, Container } from "native-base";
-import { Ionicons } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
+import { StyleSheet } from "react-native";
+import { Container } from "native-base";
 
 // Navigation
 import RootNavigator from "./Navigation";
@@ -12,12 +9,9 @@ import { NavigationContainer } from "@react-navigation/native";
 // Redux
 import { Provider } from "react-redux";
 import store from "./redux";
-// import ProductsList from "./Components/ProductsList";
 
 export default function App() {
   return (
-    // <Text> React Native</Text>
-    // <ProductsList />
     <Provider store={store}>
       <NavigationContainer>
         <Container>
@@ -36,5 +30,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-//export default App;

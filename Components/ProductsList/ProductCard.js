@@ -1,4 +1,3 @@
-// NativeBase Components
 import React from "react";
 import {
   Container,
@@ -8,8 +7,6 @@ import {
   CardItem,
   Thumbnail,
   Text,
-  Button,
-  Icon,
   Left,
   Body,
   ListItem,
@@ -24,10 +21,10 @@ const ProductCard = ({ product, navigation }) => {
       <Container>
         <Header />
         <Content>
-          <Card >
+          <Card>
             <CardItem header>
               <Left>
-              <Thumbnail source={{uri: product.image}} />
+                <Thumbnail source={{ uri: product.image }} />
                 <Body>
                   <Text>{product.name}</Text>
                   <Text note>{product.price}</Text>

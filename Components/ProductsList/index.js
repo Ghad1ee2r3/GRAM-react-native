@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { List, Content } from "native-base";
 
 // components
-
 import ProductCard from "./ProductCard";
-
-//const { Navigator, Screen } = createStackNavigator();
 
 const ProductsList = ({ navigation, products }) => {
   // send one item from list to display in card
