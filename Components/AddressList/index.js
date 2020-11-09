@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { List, Content } from "native-base";
+import { List, Content, Button } from "native-base";
 
 // components
 import AddressCard from "./AddressCard";
 
-const AddressList = ({ addresses }) => {
+const AddressList = ({ addresses, navigation }) => {
   // send one item from list to display in card
   const addressList = addresses.map((address) => (
     <AddressCard key={address.id} address={address} />
@@ -14,6 +14,7 @@ const AddressList = ({ addresses }) => {
   return (
     <Content>
       <List>{addressList}</List>
+      <Button onPress={() => navigation.replace("AddAddress")}>Add new Address</Button>
     </Content>
   );
 };
