@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { SIGNUP } from "../../Navigation/Screennames";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
 
-const Login = ({ navigation, login }) => {
+const Login = ({ login, navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,11 +31,19 @@ const Login = ({ navigation, login }) => {
       />
       <TouchableOpacity
         style={styles.authButton}
-        onPress={() => login({ username, password }, navigation)}
+        onPress={() => login({ username, password })}
       >
-        <Text style={styles.authButtonText}>Login</Text>
+        <Text
+          style={styles.authButtonText}
+          onPress={() => navigation.replace("ProductsList")}
+        >
+          Login
+        </Text>
       </TouchableOpacity>
-      <Text style={styles.authOther} onPress={() => navigation.replace(SIGNUP)}>
+      <Text
+        style={styles.authOther}
+        onPress={() => navigation.replace("Signup")}
+      >
         Click here to register!
       </Text>
     </View>
