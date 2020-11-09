@@ -40,7 +40,6 @@ export const signup = (userData) => async (dispatch) => {
   try {
     await instance.post(`signup/`, userData);
     dispatch(login(userData));
-    console.log("signedup and this response ", response);
   } catch (error) {
     console.error("Error while signing up", error);
   }
