@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { connect } from "react-redux";
 
 // Screens
-import { LOGIN, SIGNUP, PROFILE } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 
