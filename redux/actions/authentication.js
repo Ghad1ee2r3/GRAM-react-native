@@ -15,34 +15,34 @@ const setCurrentUser = (token) => async (dispatch) => {
   });
 };
 
-const setAuthToken = (token) => {
+const setAuthToken = async (token) => {
   if (token) {
-    Cookies.set("token", token);
+    await AsyncStorage.setItem("token", token);
     instance.defaults.headers.Authorization = `Bearer ${token}`;
   } else {
     delete instance.defaults.headers.Authorization;
-    Cookies.remove("token");
+    await AsyncStorage.removeItem("token");
   }
 };
 
-export const login = (userData, navigation) => async (dispatch) => {
+export const login = (userData) => async (dispatch) => {
   try {
     const res = await instance.post(`login/`, userData);
-    const { token } = res.data;
-    dispatch(setCurrentUser(token));
+    let { access } = res.data;
+    dispatch(setCurrentUser(access));
     // navigation.navigate(SHOP);
   } catch (error) {
     console.error("Error while logging in", error);
   }
 };
 
-export const signup = (userData, navigation) => async (dispatch) => {
+export const signup = (userData) => async (dispatch) => {
   try {
-    await instance.post(`register/`, userData);
-    dispatch(login(userData, navigation));
+    await instance.post(`signup/`, userData);
+    dispatch(login(userData));
+    console.log("signedup and this response ", response);
   } catch (error) {
     console.error("Error while signing up", error);
-    console.error(error.response.data);
   }
 };
 

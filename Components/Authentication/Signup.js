@@ -7,7 +7,7 @@ import { TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
 
-const Signup = ({ navigation, signup }) => {
+const Signup = ({ signup }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,7 +33,7 @@ const Signup = ({ navigation, signup }) => {
       />
       <TouchableOpacity
         style={styles.authButton}
-        onPress={() => signup({ username, password }, navigation)}
+        onPress={() => signup({ username, password })}
       >
         <Text style={styles.authButtonText}>Sign up</Text>
       </TouchableOpacity>
