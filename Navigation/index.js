@@ -3,12 +3,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 // Components
 import ProductsList from "../Components/ProductsList";
 import ProductDetail from "../Components/ProductDetail";
-
+import Login from "../Components/Authentication/Login";
 const { Navigator, Screen } = createStackNavigator();
 
 export default function RootNavigation() {
   return (
-    <Navigator initialRouteName="ProductsList">
+    <Navigator initialRouteName="Login">
+      <Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Screen
         name="ProductsList"
         component={ProductsList}
