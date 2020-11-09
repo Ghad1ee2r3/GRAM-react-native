@@ -1,51 +1,26 @@
-import React, { Component } from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-// Components
-import ProductsList from "../Components/ProductsList";
-import ProductDetail from "../Components/ProductDetail";
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const { Navigator, Screen } = createStackNavigator();
+// Screens
+import UserStack from "./StackNavigators/UserStack";
+import CartStack from "./StackNavigators/CartStack";
+import ShopStack from "./StackNavigators/ShopStack";
 
-export default function RootNavigation() {
+const { Navigator, Screen } = createBottomTabNavigator();
+
+// Config
+import { tabBarOptions, tabScreenOptions } from "./options";
+
+export default function RootTabNavigator() {
   return (
-    <Navigator initialRouteName="ProductsList">
-      <Screen
-        name="ProductsList"
-        component={ProductsList}
-        options={{
-          title: "Products List ",
-          headerTintColor: "white",
-          headerStyle: {
-            backgroundColor: "rgb(20,90,100)",
-          },
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
-        }}
-      />
-
-      <Screen
-        name="ProductDetail"
-        component={ProductDetail}
-        options={
-          (({ route }) => {
-            const { product } = route.params;
-            console.log(product);
-            return {
-              title: product.name,
-            };
-          },
-          {
-            headerTintColor: "white",
-            headerStyle: {
-              backgroundColor: "rgb(20,90,100)",
-            },
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          })
-        }
-      />
+    <Navigator
+      initialRouteName="Products"
+      tabBarOptions={tabBarOptions}
+      screenOptions={tabScreenOptions}
+    >
+      <Screen name="Profile" component={UserStack} />
+      <Screen name="Products" component={ShopStack} />
+      <Screen name="Cart" component={CartStack} />
     </Navigator>
   );
 }
