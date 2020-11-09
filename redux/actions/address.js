@@ -18,7 +18,7 @@ import {
     }
   };
   
-  export const addAddress = (newAddress, history) => async (dispatch) => {
+  export const addAddress = (newAddress, navigation) => async (dispatch) => {
     try {
       const res = await instance.post("address/add/", newAddress);
       const address = res.data;
@@ -28,6 +28,7 @@ import {
         payload: address,
       });
     //   history.push("/addresses");
+    navigation.replace("AddressList")
     } catch (err) {
       dispatch({
         type: SET_ERRORS,

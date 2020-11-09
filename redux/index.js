@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 // Actions
-import { checkForToken, fetchProducts } from "./actions";
+import { checkForToken, fetchProducts, fetchCountries } from "./actions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -14,4 +14,5 @@ const store = createStore(
 );
 store.dispatch(fetchProducts());
 store.dispatch(checkForToken());
+store.dispatch(fetchCountries());
 export default store;

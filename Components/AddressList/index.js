@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { List, Content, Button } from "native-base";
+import { List, Content, Button, Text, Container, ListItem } from "native-base";
 
 // components
 import AddressCard from "./AddressCard";
@@ -12,10 +12,16 @@ const AddressList = ({ addresses, navigation }) => {
   ));
 
   return (
-    <Content>
-      <List>{addressList}</List>
-      <Button onPress={() => navigation.replace("AddAddress")}>Add new Address</Button>
-    </Content>
+    <Container>
+      <Content>
+        <List>
+          {addressList}
+          <ListItem>
+            <Button onPress={() => navigation.navigate("AddAddress")}><Text>Add new Address</Text></Button>
+          </ListItem>
+          </List>
+      </Content>
+    </Container>
   );
 };
 

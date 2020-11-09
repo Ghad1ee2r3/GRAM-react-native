@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Container,
-  Header,
   Content,
   Card,
   CardItem,
@@ -11,14 +9,12 @@ import {
   ListItem,
   Button,
 } from "native-base";
-import { deleteAddress } from "../redux/actions";
+import { deleteAddress } from "../../redux/actions";
 import { connect } from "react-redux";
 
-const AddressCard = ({ address }) => {
+const AddressCard = ({ address, deleteAddress }) => {
   return (
     <ListItem>
-      <Container>
-        <Header />
         <Content>
           <Card>
             <CardItem header>
@@ -31,13 +27,12 @@ const AddressCard = ({ address }) => {
                   <Text note>{address.city}</Text>
                   <Text note>{address.address_line_1}</Text>
                   <Text note>{address.address_line_2}</Text>
-                  <Button>Delete</Button>
                 </Body>
+                <Button onPress={() => deleteAddress(address.id)}><Text>Delete</Text></Button>
               </Left>
             </CardItem>
           </Card>
         </Content>
-      </Container>
     </ListItem>
   );
 };
