@@ -1,7 +1,6 @@
 import productsReducer from "./products";
-import user from "./user";
+import useReducer from "./user";
 import { combineReducers } from "redux";
-import { useReducer } from "react";
 
 const rootReducer = combineReducers({
   products: productsReducer,
