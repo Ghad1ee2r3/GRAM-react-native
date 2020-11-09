@@ -1,26 +1,26 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import ProductsList from "../../Components/ProductsList";
-import ProductDetail from "../../Components/ProductDetail";
-
-// Config
-import { stackScreenOptions } from "../options";
+import { connect } from "react-redux";
+// Screens
+import Login from "../../Components/Authentication/Login";
+import Signup from "../../Components/Authentication/Signup";
 
 const { Navigator, Screen } = createStackNavigator();
 
-export default function ShopStack() {
+const mapStateToProps = ({ user }) => ({
+  user,
+});
+
+export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
-    <Navigator
-      initialRouteName="ProductsList"
-      screenOptions={stackScreenOptions}
-    >
-      <Screen name="ProductsList" component={ProductsList} />
+    <Navigator initialRouteName="Login">
+      <Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Screen
-        name="ProductDetail"
-        component={ProductDetail}
-        options={({ route }) => ({ title: route.params.product.name })}
+        name="Signup"
+        component={Signup}
+        options={{ headerShown: false }}
       />
     </Navigator>
   );
-}
+});
+
