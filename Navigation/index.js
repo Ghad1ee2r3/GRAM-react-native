@@ -4,12 +4,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import ProductsList from "../Components/ProductsList";
 import ProductDetail from "../Components/ProductDetail";
 import Login from "../Components/Authentication/Login";
+import Signup from "../Components/Authentication/Signup";
 const { Navigator, Screen } = createStackNavigator();
 
 export default function RootNavigation() {
   return (
     <Navigator initialRouteName="Login">
       <Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Screen
+        name="Signup"
+        component={Signup}
+        options={{ headerShown: false }}
+      />
+
       <Screen
         name="ProductsList"
         component={ProductsList}
