@@ -2,14 +2,16 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { signup } from "../../redux/actions";
-import { LOGIN } from "../../Navigation/Screennames";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
 
-const Signup = ({ navigation, signup }) => {
+const Signup = ({ signup, navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
 
   return (
     <View style={styles.authContainer}>
@@ -24,6 +26,30 @@ const Signup = ({ navigation, signup }) => {
       />
       <TextInput
         style={styles.authTextInput}
+        placeholder="Email"
+        placeholderTextColor="#A6AEC1"
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.authTextInput}
+        placeholder="First name"
+        placeholderTextColor="#A6AEC1"
+        value={firstname}
+        onChangeText={setFirstname}
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.authTextInput}
+        placeholder="Last name"
+        placeholderTextColor="#A6AEC1"
+        value={lastname}
+        onChangeText={setLastname}
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.authTextInput}
         placeholder="Password"
         placeholderTextColor="#A6AEC1"
         value={password}
@@ -33,11 +59,16 @@ const Signup = ({ navigation, signup }) => {
       />
       <TouchableOpacity
         style={styles.authButton}
-        onPress={() => signup({ username, password }, navigation)}
+        onPress={() =>
+          signup({ username, email, firstname, lastname, password })
+        }
       >
         <Text style={styles.authButtonText}>Sign up</Text>
       </TouchableOpacity>
-      <Text style={styles.authOther} onPress={() => navigation.replace(LOGIN)}>
+      <Text
+        style={styles.authOther}
+        onPress={() => navigation.replace("Login")}
+      >
         Click here to log in!
       </Text>
     </View>
@@ -49,3 +80,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(Signup);
+
