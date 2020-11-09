@@ -3,7 +3,7 @@ import decode from "jwt-decode";
 
 import { SET_CURRENT_USER } from "./actionTypes";
 
-import { instance } from "./instance";
+import instance from "./instance";
 
 // import { SHOP } from "../../Navigation/Screennames";
 
