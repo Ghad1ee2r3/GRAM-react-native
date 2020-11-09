@@ -1,10 +1,14 @@
 import { SET_CURRENT_USER } from "../actions/actionTypes";
 
-export default (user = null, action) => {
+const initialState = null;
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
       return action.payload;
     default:
-      return user;
+      return state;
   }
 };
+
+export default reducer;
