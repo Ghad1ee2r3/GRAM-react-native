@@ -6,6 +6,8 @@ import { SET_CURRENT_USER } from "./actionTypes";
 import instance from "./instance";
 import { fetchOrders } from "../actions";
 
+import { fetchAddresses } from "./address"
+
 // import { SHOP } from "../../Navigation/Screennames";
 
 const setCurrentUser = (token) => async (dispatch) => {
@@ -14,6 +16,7 @@ const setCurrentUser = (token) => async (dispatch) => {
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
   });
+  dispatch(fetchAddresses())
   dispatch(fetchOrders());
 };
 

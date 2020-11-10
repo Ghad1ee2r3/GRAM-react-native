@@ -8,6 +8,12 @@ import Profile from "../../Components/Profile";
 import OrderList from "../../Components/OrderList";
 import OrderDetail from "../../Components/OrderDetail";
 
+import AddressList from "../../Components/AddressList";
+import AddAddress from "../../Components/AddAddress";
+
+// Config
+import { stackScreenOptions } from "../options";
+
 const { Navigator, Screen } = createStackNavigator();
 
 const mapStateToProps = ({ user }) => ({
@@ -16,36 +22,22 @@ const mapStateToProps = ({ user }) => ({
 
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
-    <Navigator initialRouteName={user ? "Profile" : "Login"}>
+ 
+    <Navigator 
+    initialRouteName={user ? "Profile" : "Login"}
+    screenOptions={stackScreenOptions}
+    >
       {user ? (
         <>
           <Screen
             name="Profile"
             component={Profile}
-            options={{
-              title: "Profile ",
-              headerTintColor: "white",
-              headerStyle: {
-                backgroundColor: "rgb(20,90,100)",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-              },
-            }}
+            options={{ title: "Profile " }}
           />
           <Screen
             name="OrderList"
             component={OrderList}
-            options={{
-              title: "Order List ",
-              headerTintColor: "white",
-              headerStyle: {
-                backgroundColor: "rgb(20,90,100)",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-              },
-            }}
+            options={{ title: "Order List " }}
           />
 
           <Screen
@@ -54,22 +46,23 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             options={
               (({ route }) => {
                 const { order } = route.params;
-                console.log(order);
                 return {
                   title: order.uuid,
                 };
-              },
-              {
-                headerTintColor: "white",
-                headerStyle: {
-                  backgroundColor: "rgb(20,90,100)",
-                },
-                headerTitleStyle: {
-                  fontWeight: "bold",
-                },
               })
             }
           />
+            <Screen 
+              name="AddressList" 
+              component={AddressList} 
+              options={{ title: "Addresses" }}
+            />
+
+            <Screen
+              name="AddAddress"
+              component={AddAddress}
+              options={{ title: "Add address" }}
+            />
         </>
       ) : (
         <>
