@@ -19,9 +19,7 @@ export const setCart = () => {
     return async (dispatch) => {
         let result = []
         const items = await AsyncStorage.getItem('cart')
-        // console.log("cart", JSON.parse(items));
         result = items !== null ? JSON.parse(items) : [];
-        console.log(result);
         return dispatch({
             type: SET_CART,
             payload: result

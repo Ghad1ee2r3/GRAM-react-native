@@ -54,7 +54,6 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             options={
               (({ route }) => {
                 const { order } = route.params;
-                // console.log(order);
                 return {
                   title: order.uuid,
                 };
