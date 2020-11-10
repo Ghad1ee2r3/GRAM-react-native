@@ -5,10 +5,12 @@ import { List, Content, Button, Text, Container, ListItem } from "native-base";
 // components
 import AddressCard from "./AddressCard";
 
-const AddressList = ({ addresses, navigation }) => {
+const AddressList = ({ addresses, navigation, setSelectedAddress, checkout }) => {
   // send one item from list to display in card
   const addressList = addresses.map((address) => (
-    <AddressCard key={address.id} address={address} />
+    <AddressCard key={address.id} address={address} 
+    setSelectedAddress={setSelectedAddress} checkout={checkout}
+    />
   ));
 
   return (

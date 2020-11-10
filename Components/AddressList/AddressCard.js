@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import {Pressable} from "react-native";
 import {
   Content,
   Card,
@@ -8,13 +9,30 @@ import {
   Body,
   ListItem,
   Button,
+  Right,
+  Radio,
 } from "native-base";
 import { deleteAddress } from "../../redux/actions";
 import { connect } from "react-redux";
 
-const AddressCard = ({ address, deleteAddress }) => {
+const AddressCard = ({ address, deleteAddress, setSelectedAddress, checkout }) => {
+  const [pressed, setPressed] = useState(false)
+
+  const handlePress = () => {
+    if(checkout){
+      console.log("onpress")
+    const newPress = !pressed
+    setPressed(newPress)
+    if(newPress){
+      setSelectedAddress(address)
+      
+    } else {
+      setSelectedAddress("") 
+    }
+    }
+  }
   return (
-    <ListItem>
+    <ListItem onPress={handlePress}>
         <Content>
           <Card>
             <CardItem header>
@@ -30,6 +48,14 @@ const AddressCard = ({ address, deleteAddress }) => {
                 </Body>
                 <Button onPress={() => deleteAddress(address.id)}><Text>Delete</Text></Button>
               </Left>
+              {
+              checkout?(
+                <Right>
+                    <Radio selected={pressed} /> 
+                </Right>
+              ):
+              null
+              }
             </CardItem>
           </Card>
         </Content>
