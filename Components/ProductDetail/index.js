@@ -17,13 +17,13 @@ import {
 
 const ProductDetail = ({ route, addItem, cart }) => {
   const { product } = route.params;
-
   let cartProduct = cart.items.find(item => item.product.id === product?.id)
+
   if (!cartProduct) cartProduct = { qty: 0 }
 
   const [item, setItem] = useState({
     product: product,
-    qty: qty
+    qty: 0
   })
 
   const [qty, setQty] = useState(1);
@@ -35,7 +35,7 @@ const ProductDetail = ({ route, addItem, cart }) => {
 
 
   const handlePress = () => {
-    alert(`added to cart ${product.name}`)
+    alert(`added to cart ${product.name} ${qty}`)
     // console.log(item);
     setItem({ ...item, qty: qty })
     addItem(item)

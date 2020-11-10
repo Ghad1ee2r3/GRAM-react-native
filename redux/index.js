@@ -14,6 +14,7 @@ const store = createStore(
 );
 store.dispatch(fetchProducts());
 store.dispatch(checkForToken());
+console.log("from big index");
 store.dispatch(setCart());
 
 export default store;

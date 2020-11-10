@@ -8,39 +8,30 @@ const initialState = {
     tax: 0
 };
 
-// retrive the data from local storage
-const getData = async () => {
-    try {
-        const myCart = await AsyncStorage.getItem('cart')
-        return myCart != null ? JSON.parse(myCart) : initialState;
-    } catch (error) {
-        console.error(error);
-        return ("something went wrong!")
-    }
-}
 // set items in the cart
-const storeData = async (item) => {
+const storeData = async (items) => {
     try {
-        const updatedCart = JSON.stringify(item)
+        const updatedCart = JSON.stringify(items)
+        // console.log(items);
         await AsyncStorage.setItem('cart', updatedCart)
     } catch (error) {
         console.error(error);
-        return ("something went wrong!")
     }
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CART:
-            getData()
+            // console.log("----- pay load",action.payload);
+            return {...state, items: [...action.payload], total:5};
         case ADD_ITEM:
             // check for exixting item to update qty only or add new item
-            console.log("XxxxxxxxxxxXxxxxxxxxxxxxX");
-            const x = JSON.parse(action.payload)
-            // console.log(action.payload);
-            console.log(x.name);
-            console.log("XxxxxxxxxxxXxxxxxxxxxxxxX");
-            // const existingItem = state.items.find(item => item.product.id === action.payload.product.id)
+            console.log("init state", state);
+            // check if the item exists in the array if yes update qty of the item
+            let newItems = [...state.items, action.payload]
+            storeData(newItems)
+            return {...state, items: newItems}
+            const existingItem = state.items.find(item => item.product.id === action.payload.product.id)
             // if (existingItem) {
             //     const newQty = existingItem + action.payload
             //     const newItem = { ...existingItem, qty: newQty }
@@ -63,8 +54,9 @@ const reducer = (state = initialState, action) => {
             // const rtotal = rsubtotal + rtax
             // const newCart = { ...state, items: ritems, subtotal: rsubtotal, tax: rtax, total: rtotal };
             // storeData.bind(newCart)
-            // return newCart;
-            console.log("i do nothing");
+            return state;
+
+            // console.log("i do nothing");
         default:
             return state;
     }
