@@ -35,7 +35,7 @@ const Login = ({ login, navigation }) => {
       >
         <Text
           style={styles.authButtonText}
-          onPress={() => navigation.replace("ProductsList")}
+          onPress={() => navigation.navigate("Profile")}
         >
           Login
         </Text>

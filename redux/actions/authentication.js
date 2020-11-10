@@ -4,6 +4,7 @@ import decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./actionTypes";
 
 import instance from "./instance";
+import { fetchOrders } from "../actions";
 
 import { fetchAddresses } from "./address"
 
@@ -16,6 +17,7 @@ const setCurrentUser = (token) => async (dispatch) => {
     payload: token ? decode(token) : null,
   });
   dispatch(fetchAddresses())
+  dispatch(fetchOrders());
 };
 
 const setAuthToken = async (token) => {
