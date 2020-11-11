@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Container,
-  Header,
   Content,
   Card,
   CardItem,
@@ -11,29 +9,32 @@ import {
   Body,
   ListItem,
 } from "native-base";
+import { Image, StyleSheet } from "react-native";
 
 const ProductCard = ({ product, navigation }) => {
+  console.log("product");
+  console.log(product);
   return (
     <ListItem
       button
       onPress={() => navigation.navigate("ProductDetail", { product })}
     >
-      <Container>
-        <Header />
-        <Content>
-          <Card>
-            <CardItem header>
-              <Left>
-                <Thumbnail source={{ uri: product.image }} />
-                <Body>
-                  <Text>{product.name}</Text>
-                  <Text note>{product.price}</Text>
-                </Body>
-              </Left>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+      <Content>
+        <Card>
+          <CardItem header>
+            <Body>
+              <Image
+                source={{
+                  uri: product.image,
+                }}
+                style={{ height: 400, width: 300, flex: 1 }}
+              />
+              <Text>{product.name}</Text>
+              <Text note>{product.price}</Text>
+            </Body>
+          </CardItem>
+        </Card>
+      </Content>
     </ListItem>
   );
 };

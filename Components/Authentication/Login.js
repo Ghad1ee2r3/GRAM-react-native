@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import {
+  TextInput,
+  TouchableOpacity,
+  View,
+  ImageBackground,
+} from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
 

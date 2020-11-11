@@ -1,11 +1,15 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  background: {
+    width: null,
+    flex: 1,
+  },
   authButton: {
     alignSelf: "stretch",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "rgb(20,90,100)",
+    backgroundColor: "#7D583D",
     marginTop: 30,
   },
   authButtonText: {
@@ -23,7 +27,7 @@ const styles = StyleSheet.create({
     paddingLeft: 60,
   },
   authOther: {
-    color: "rgb(20,90,100)",
+    color: "rgb(105,79,61)",
     marginTop: 15,
   },
   authTextInput: {
@@ -31,15 +35,15 @@ const styles = StyleSheet.create({
     textAlign: "left",
     height: 40,
     marginBottom: 30,
-    color: "rgb(20,90,100)",
-    borderBottomColor: "rgb(20,90,100)",
+    color: "rgb(105,79,61)",
+    borderBottomColor: "rgb(105,79,61)",
     borderBottomWidth: 1,
   },
   authTitle: {
-    color: "rgb(20,90,100)",
+    color: "rgb(105,79,61)",
     fontSize: 24,
     marginBottom: 20,
-    borderBottomColor: "rgb(20,90,100)",
+    borderBottomColor: "rgb(105,79,61)",
   },
   profileImage: {
     height: 75,
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
   },
   profiletext: {
     textAlign: "left",
-    color: "rgb(20,90,100)",
+    color: "rgb(105,79,61)",
     fontSize: 16,
   },
 });

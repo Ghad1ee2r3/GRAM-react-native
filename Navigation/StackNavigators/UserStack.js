@@ -32,12 +32,34 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name="Profile"
             component={Profile}
-            options={{ title: "Profile " }}
+
+            options={{
+              title: "Profile ",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: "rgb(51,51,51)",
+              },
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+
           />
           <Screen
             name="OrderList"
             component={OrderList}
-            options={{ title: "Order List " }}
+
+            options={{
+              title: "Order List ",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: "rgb(51,51,51)",
+              },
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
+
           />
 
           <Screen
@@ -49,6 +71,18 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
                 return {
                   title: order.uuid,
                 };
+
+              },
+              {
+                headerTintColor: "white",
+                headerStyle: {
+                  backgroundColor: "rgb(51,51,51)",
+                },
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                },
+
+
               })
             }
           />

@@ -18,11 +18,14 @@ const OrderCard = ({ order, navigation }) => {
     >
       <Content>
         <Card>
-          <Header />
           <CardItem header>
             <Left>
               <Body>
-                <Text>{order.uuid}</Text>
+                <Text
+                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                >
+                  UUID: {order.uuid}
+                </Text>
                 <Text note>Date :{order.created_date}</Text>
                 <Text note>Total:{order.total}</Text>
               </Body>
