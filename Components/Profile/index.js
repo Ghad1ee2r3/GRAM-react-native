@@ -22,6 +22,7 @@ import { logout } from "../../redux/actions";
 const Profile = ({ user, logout, navigation }) => {
   const fullName = `${user?.first_name} ${user?.last_name}`;
   return (
+
     <Container>
       <Content padder>
         <View padder style={globalStyle.container}>
@@ -116,6 +117,8 @@ const Profile = ({ user, logout, navigation }) => {
         </View>
       </Content>
     </Container>
+
+  
   );
 };
 
