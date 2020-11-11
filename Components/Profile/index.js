@@ -12,7 +12,6 @@ const Profile = ({ user, logout, navigation }) => {
   return (
     <View>
       <Text> Profile</Text>
-
       <Text>username: {user?.username}</Text>
       <Text>email : {user?.email}</Text>
       <Text>First Name : {user?.first_name}</Text>
@@ -20,9 +19,9 @@ const Profile = ({ user, logout, navigation }) => {
       <Button full onPress={() => navigation.navigate("OrderList")}>
         <Text>order list</Text>
       </Button>
-      {/* <Button full onPress={() => navigation.navigate("AddressList")}>
+      <Button full onPress={() => navigation.navigate("AddressList")}>
         <Text>Address List</Text>
-      </Button> */}
+      </Button>
       <LogoutButton logout={logout} />
     </View>
   );

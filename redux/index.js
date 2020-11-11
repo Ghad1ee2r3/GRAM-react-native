@@ -15,4 +15,5 @@ const store = createStore(
 store.dispatch(fetchProducts());
 store.dispatch(checkForToken());
 store.dispatch(fetchCountries());
+
 export default store;
