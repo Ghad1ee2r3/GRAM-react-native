@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Pressable} from "react-native";
 import {
   Content,
   Card,
@@ -25,7 +24,6 @@ const AddressCard = ({ address, deleteAddress, setSelectedAddress, checkout }) =
     setPressed(newPress)
     if(newPress){
       setSelectedAddress(address)
-      
     } else {
       setSelectedAddress("") 
     }

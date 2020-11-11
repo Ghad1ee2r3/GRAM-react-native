@@ -5,6 +5,7 @@ import productsReducer from "./products";
 import userAddress from "./address";
 import countriesList from "./countries"
 import errorsReducer from "./errors";
+import userCart from "./cart"
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   countries: countriesList,
   errorMsg: errorsReducer,
   orders: ordersReducer,
+  cart: userCart,
 });
 
 export default rootReducer;

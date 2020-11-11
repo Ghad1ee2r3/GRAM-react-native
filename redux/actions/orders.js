@@ -1,6 +1,7 @@
 import { SET_ORDERS } from "./actionTypes";
-
 import instance from "./instance";
+import {setCart} from "./cart"
+
 export const fetchOrders = () => async (dispatch) => {
   try {
     const res = await instance.get("orders/");
@@ -14,16 +15,15 @@ export const fetchOrders = () => async (dispatch) => {
   }
 };
 
-export const checkout = (orderData) => async dispatch => {
+export const checkout = (orderData, navigation) => async dispatch => {
   try{
       const res = await instance.post("order/checkout/", orderData)
       const order = res.data
       dispatch(fetchOrders())
-      console.log("sent the order")
-      // Cookies.remove("cart")
-      // dispatch(setCart())
-
-      
+      dispatch(setCart())
+      // await AsyncStorage.removeItem("cart");
+      navigation.replace("Cart")
+      alert("Tnak you! see you soon")
   } catch (error){
       dispatch({
           type: SET_ERRORS,

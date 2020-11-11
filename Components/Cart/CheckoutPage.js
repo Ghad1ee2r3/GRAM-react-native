@@ -7,19 +7,12 @@ import { checkout } from "../../redux/actions";
 // Components
 import AddressList from "../AddressList"
 
-const CheckoutPage = ({ navigation, user, orderCheckout }) => {
+const CheckoutPage = ({ navigation, user, orderCheckout, cart }) => {
 
-    // const items = cart.items.map(item => ({product: item.product.id, qty: item.qty}))
-    const items = [{product:1, qty:3},{product:2, qty:3},{product:3, qty:3}]
-    // const [order, setOrder] = useState({
-    //     total: cart.total,
-    //     tax: cart.tax,
-    //     address: "",
-    //     items: items
-    // })
+    const items = cart.items.map(item => ({product: item.product.id, qty: item.qty}))
     const [order, setOrder] = useState({
-        total: 0,
-        tax: 0,
+        total: cart.total,
+        tax: cart.tax,
         address: "",
         items: items
     })
@@ -27,12 +20,11 @@ const CheckoutPage = ({ navigation, user, orderCheckout }) => {
     const placeOrder = () => {
         const newOrder = {...order, address:selectedAddress.id}
         setOrder(newOrder)
-        console.log("newOrder ", newOrder)
-        orderCheckout(newOrder)
+        orderCheckout(newOrder, navigation)
     }
 
     if(!user) navigation.replace("Login")
-    // if(!cart.items.length) navigation.replace("Cart")
+    if(!cart.items.length) navigation.replace("Cart")
 
     return (
         <Container>
@@ -42,12 +34,9 @@ const CheckoutPage = ({ navigation, user, orderCheckout }) => {
             <CardItem header>
               <Left>
                 <Body>
-                  {/* <Text>Total: {cart.subtotal + cart.total} SAR</Text>
+                  <Text>Total: {cart.subtotal + cart.total} SAR</Text>
                   <Text note>Subtotal: {cart.subtotal} SAR</Text>
-                  <Text note>Tax: {cart.tax} SAR</Text> */}
-                  <Text>Total: 0 SAR</Text>
-                  <Text note>Subtotal: 0 SAR</Text>
-                  <Text note>Tax: 0 SAR</Text>
+                  <Text note>Tax: {cart.tax} SAR</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -58,24 +47,20 @@ const CheckoutPage = ({ navigation, user, orderCheckout }) => {
                 <Button onPress={placeOrder}><Text>Place order</Text></Button>
             ):
             null
-        } 
+        }
+        <Button onPress={() => navigation.replace("Cart")}><Text>Cancel</Text></Button> 
         </Container>
     )
 }
 
-// const mapStateToProps = ({ user, cart }) => ({
-//     user,
-//     cart
-// });
-const mapStateToProps = ({ user }) => ({
+const mapStateToProps = ({ user, cart }) => ({
     user,
-    
+    cart
 });
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        orderCheckout: (newOrder) => dispatch(checkout(newOrder)),
+        orderCheckout: (newOrder, navigation) => dispatch(checkout(newOrder, navigation)),
     };
   };
 
