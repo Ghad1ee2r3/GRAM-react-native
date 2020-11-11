@@ -1,10 +1,9 @@
 import React from "react";
 import { Icon } from "native-base";
 
-
 export const stackScreenOptions = {
   headerStyle: {
-    backgroundColor: "rgb(20,90,100)",
+    backgroundColor: "rgb(51,51,51)",
   },
   headerTitleStyle: {
     fontWeight: "bold",
@@ -17,7 +16,7 @@ export const tabBarOptions = {
   activeTintColor: "white",
   inactiveTintColor: "black",
   style: {
-    backgroundColor: "rgb(20,90,100)",
+    backgroundColor: "rgb(51,51,51)",
   },
 };
 

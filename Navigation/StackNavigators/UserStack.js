@@ -26,7 +26,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
               title: "Profile ",
               headerTintColor: "white",
               headerStyle: {
-                backgroundColor: "rgb(20,90,100)",
+                backgroundColor: "rgb(51,51,51)",
               },
               headerTitleStyle: {
                 fontWeight: "bold",
@@ -40,7 +40,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
               title: "Order List ",
               headerTintColor: "white",
               headerStyle: {
-                backgroundColor: "rgb(20,90,100)",
+                backgroundColor: "rgb(51,51,51)",
               },
               headerTitleStyle: {
                 fontWeight: "bold",
@@ -62,7 +62,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
               {
                 headerTintColor: "white",
                 headerStyle: {
-                  backgroundColor: "rgb(20,90,100)",
+                  backgroundColor: "rgb(51,51,51)",
                 },
                 headerTitleStyle: {
                   fontWeight: "bold",

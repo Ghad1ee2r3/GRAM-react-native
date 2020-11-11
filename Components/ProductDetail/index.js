@@ -9,6 +9,7 @@ import {
   CardItem,
   Container,
 } from "native-base";
+import { Image, StyleSheet } from "react-native";
 
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
@@ -17,6 +18,7 @@ const ProductDetail = ({ route }) => {
   const productImage = product.images.map((image) => (
     <Thumbnail key={image} source={{ uri: image }} />
   ));
+  console.log(product.images[0]);
 
   return (
     <Container>
@@ -24,12 +26,25 @@ const ProductDetail = ({ route }) => {
         <Card style={{ flex: 0 }}>
           <CardItem header>
             <Left>
-              <Thumbnail source={{ uri: product.image }} />
               <Body>
+                <Image
+                  source={{
+                    uri: product.image,
+                  }}
+                  style={{ height: 400, width: 400, flex: 1 }}
+                />
+
                 <Text>{product.name}</Text>
-                <Text note>{product.price}</Text>
-                <Text note>description :{product.description}</Text>
-                <Text note>stock: {product.stock}</Text>
+                <Text note>Price:{product.price} SAR</Text>
+
+                <Text
+                  note
+                  style={{ color: product.stock > 0 ? "green" : "red" }}
+                >
+                  available:{" "}
+                  {product.stock > 0 ? product.stock : "out of stock "}
+                </Text>
+                <Text note>Description :{product.description}</Text>
               </Body>
             </Left>
           </CardItem>

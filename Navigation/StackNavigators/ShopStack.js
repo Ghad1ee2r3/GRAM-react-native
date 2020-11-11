@@ -15,11 +15,11 @@ export default function ShopStack() {
       initialRouteName="ProductsList"
       screenOptions={stackScreenOptions}
     >
-      <Screen 
-        name="ProductsList" 
+      <Screen
+        name="ProductsList"
         component={ProductsList}
-        options = {{title: "Products"}}
-        />
+        options={{ title: "Products" }}
+      />
       <Screen
         name="ProductDetail"
         component={ProductDetail}

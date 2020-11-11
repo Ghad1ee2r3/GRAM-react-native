@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 // components
 import OrderCard from "./OrderCard";
+import { ImageBackground, View } from "react-native";
+
+// Style
+import styles from "./styles";
 
 import { List, Content } from "native-base";
 const OrderList = ({ navigation, orders }) => {
@@ -11,9 +15,17 @@ const OrderList = ({ navigation, orders }) => {
   ));
 
   return (
-    <Content>
-      <List>{orderCards}</List>
-    </Content>
+    <ImageBackground
+      source={{
+        uri:
+          "https://cdn.discordapp.com/attachments/772347432763523097/775650698125377546/h4-page-bg-img.jpg",
+      }}
+      style={styles.background}
+    >
+      <Content>
+        <List>{orderCards}</List>
+      </Content>
+    </ImageBackground>
   );
 };
 const mapStateToProps = ({ orders }) => ({
